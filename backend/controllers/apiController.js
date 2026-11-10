@@ -37,8 +37,8 @@ exports.submitForm = async (req, res) => {
       applicantData
     );
 
-    return res.status(200).json({
-      success: true,
+    return res.status(result.status).json({
+      successs: true,
       data: result
     });
 

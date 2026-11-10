@@ -6,7 +6,7 @@ const getAuthHeaders = () => {
   const secret = process.env.ALLOY_WORKFLOW_SECRET;
 
   if (!token || !secret) {
-    throw new Error("Alloy credentials are missing");
+    throw new Error("Missing Alloy credentials");
   }
 
   const credentials = Buffer
@@ -14,11 +14,31 @@ const getAuthHeaders = () => {
     .toString("base64");
 
   return {
-    "Authorization": `Basic ${credentials}`,
+    Authorization: `Basic ${credentials}`,
     "Content-Type": "application/json",
-    "Accept": "application/json"
+    Accept: "application/json"
   };
 };
+
+
+// const getAuthHeaders = () => {
+//   const token = process.env.ALLOY_WORKFLOW_TOKEN;
+//   const secret = process.env.ALLOY_WORKFLOW_SECRET;
+
+//   if (!token || !secret) {
+//     throw new Error("Alloy credentials are missing");
+//   }
+
+//   const credentials = Buffer
+//     .from(`${token}:${secret}`)
+//     .toString("base64");
+
+//   return {
+//     "Authorization": `Basic ${credentials}`,
+//     "Content-Type": "application/json",
+//     "Accept": "application/json"
+//   };
+// };
 
 exports.getParameters = async () => {
   try {
@@ -62,11 +82,24 @@ exports.submitEvaluation = async (applicantData) => {
     }
   );
 
-  const data = await response.json();
+const responseText = await response.text();
 
-  if (!response.ok) {
-    throw new Error(`Alloy evaluation failed (${response.status})`);
+let data;
+
+  try {
+    data = JSON.parse(responseText);
+  } catch {
+    throw new Error(`Invalid Alloy response: ${responseText}`);
   }
 
-  return data;
+  if (!response.ok) {
+    throw new Error(
+      `Alloy evaluation failed (${response.status}): ${responseText}`
+    );
+  }
+
+  return {
+    status: response.status,
+    data
+  };
 };

@@ -57,7 +57,20 @@ function App() {
 
       // Step 2: Prepare applicant data
       const applicantData = {
-        ...formData
+        email_address: formData.email,
+        address_line_1: formData.addressLine1,
+        address_country_code: formData.country || "US",
+        phone_number: formData.phoneNumber,
+
+        name_first: formData.firstName,
+        name_last: formData.lastName,
+
+        address_line_2: formData.addressLine2 || undefined,
+        address_city: formData.city || undefined,
+        address_state: formData.state || undefined,
+        address_postal_code: formData.zipCode || undefined,
+
+        birth_date: formData.dateOfBirth || undefined
       };
 
       // Step 3: Submit applicant for evaluation
@@ -73,17 +86,15 @@ function App() {
       );
 
       const result = await evaluationResponse.json();
-
-      if (result.success === false) {
+      console.log('Evaluation Result:', result);
+      const { outcome } = result.data.summary || {};
+      
+      if (outcome === "Approved") {
+          setDisplayMessage('Congratulations! Your application has been approved and your account has been successfully created.');
+      } else if (outcome === "Denied") {
         setDisplayMessage('Unfortunately, we were unable to approve your application at this time.');
-      }
-
-      if (result.success === true) {
-        setDisplayMessage('Congratulations! Your application has been approved and your account has been successfully created.');
-      }
-
-      if (result.success === 'pending') {
-        setDisplayMessage('We\'ve received your application. Our team needs to review some additional information and will follow up with you.');
+      } else if (outcome === "Manual Review") {
+                setDisplayMessage('We\'ve received your application. Our team needs to review some additional information and will follow up with you.');
       }
 
     } catch (error) {
