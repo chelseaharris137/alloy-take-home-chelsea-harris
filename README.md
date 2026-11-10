@@ -21,21 +21,17 @@ Before running the application, make sure you have installed:
 ## Installation
 1. Clone the repository
 ```sh
-bash
-git clone <repository-url>
-cd my-project
+git clone https://github.com/chelseaharris137/alloy-take-home-chelsea-harris.git
 ```
 
 3. Install frontend dependencies
 ```sh
-bash
-cd frontend
+cd /alloy-take-home-chelsea-harris
 npm install
 ```
 
 5. Install backend dependencies (Open another terminal)
 ```sh
-bash
 cd backend
 npm install
 ```
@@ -43,7 +39,6 @@ npm install
 
 Backend dependencies:
 ```sh
-bash
 npm install express cors dotenv
 ```
 
@@ -69,13 +64,11 @@ The frontend and backend must run simultaneously in separate terminals.
 
 1. Start the backend (Open a terminal and navigate to the backend directory)
 ```sh
-bash
 cd backend
 ```
 
 Start the Express server:
 ```sh
-bash
 node server.js
 ```
 
@@ -89,7 +82,6 @@ Expected terminal output: Server running on port 5050
 
 2. Start the frontend (Open another terminal and navigate to the frontend directory)
 ```sh
-bash
 npm run dev
 ```
 
