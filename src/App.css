@@ -1,0 +1,148 @@
+/* Button Styles */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #F5F5F3;
+
+}
+
+/* Container holding all the form rows stays vertical */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  width: 100%;
+  max-width: 500px; /* Bumped slightly to allow room for inline text */
+}
+
+/* Updated: Changes layout from stacked to side-by-side */
+.form-row {
+  display: flex;
+  flex-direction: row;       /* Places items side-by-side */
+  align-items: center;       /* Centers the label text vertically with the input box */
+  justify-content: space-between; /* Pushes text to the left and input to the right */
+  gap: 16px;                 /* Minimum gap between the label text and input box */
+  width: 100%;
+}
+
+/* Ensures the label has a consistent baseline width so the inputs line up perfectly */
+.form-row label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  min-width: 120px;          /* Forces all labels to take up the same horizontal space */
+  flex-shrink: 0;            /* Prevents the label text from getting squished */
+}
+
+/* Input boxes now fill the remaining space flexibly */
+.form-row input {
+  flex-grow: 1;              /* Makes the input grow to fill the rest of the row width */
+  box-sizing: border-box; 
+  padding: 8px 12px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  background-color: transparent;
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-row input:focus {
+  border-color: #000; 
+}
+
+/* Adjust the button row so it lines up with the input boxes on the right */
+.button-row {
+  display: flex;
+  justify-content: flex-end; /* Aligns the button container to the right */
+  width: 100%;/* Adds a bit of space above the button */
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #F5F5F3;
+  border: 1px solid #000;
+  color: #000;
+  padding: 8px 26px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  border-radius: 16px; 
+}
+
+/* Un-nested hover state with variable and fallback color (e.g., #333) */
+.submit-button:hover {
+  background-color: #a31c67;
+  border-color: #a31c67;
+  color: #fff;
+}
+
+
+/* Hero Styles */
+.hero {
+  position: relative;
+}
+
+.hero .base,
+.hero .framework,
+.hero .vite {
+  inset-inline: 0;
+  margin: 0 auto;
+}
+
+.hero .base {
+  width: 170px;
+  position: relative;
+  z-index: 0;
+}
+
+.hero .framework,
+.hero .vite {
+  position: absolute;
+}
+
+.hero .framework {
+  z-index: 1;
+  top: 34px;
+  height: 28px;
+  transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4);
+}
+
+.hero .vite {
+  z-index: 0;
+  top: 107px;
+  height: 26px;
+  width: auto;
+  transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8);
+}
+
+/* Layout Blocks */
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+}
+
+#spacer {
+  height: 88px;
+}
+
+/* Media Queries (Flattened) */
+@media (max-width: 1024px) {
+  #center {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+
+  #spacer {
+    height: 48px;
+  }
+}
