@@ -87,8 +87,8 @@ function App() {
 
       const result = await evaluationResponse.json();
       console.log('Evaluation Result:', result);
-      const { outcome } = result.data.summary || {};
-      
+      const { outcome } = result?.data?.data?.summary || {};
+ 
       if (outcome === "Approved") {
         setDisplayMessage('Congratulations! Your application has been approved and your account has been successfully created.');
       } else if (outcome === "Denied") {
@@ -126,6 +126,7 @@ function App() {
         {displayMessage != '' ? (<div>{displayMessage}</div>) : (<form onSubmit={handleSubmit}>
 
           <div className="form-row">
+          {/* First name data input not required in order to test manual review outcome */}
             <label htmlFor="firstName">First Name:</label>
             <input
               id="firstName"
@@ -134,7 +135,7 @@ function App() {
               placeholder="Enter your first name"
               value={formData.firstName}
               onChange={handleChange}
-              required
+              // required
             />
           </div>
 
