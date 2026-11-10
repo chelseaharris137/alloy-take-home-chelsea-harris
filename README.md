@@ -98,5 +98,5 @@ http://localhost:5173
 
 2. <b>Denied:</b> Complete all fields and set the applicant's last name to <i>"Deny"</i> to trigger a denial and display the rejection page.
 
-3. <b>Manual Review:</b> Leave the first name field blank to trigger manual review. The required-field validation has been temporarily disabled for testing purposes.
+3. <b>Manual Review:</b> Complete all fields and set the applicant's last name to <i>"Review"</i> to trigger a denial and display the rejection page.
 

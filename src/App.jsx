@@ -164,7 +164,7 @@ function App() {
               placeholder="Enter your first name"
               value={formData.firstName}
               onChange={handleChange}
-              // required
+              required
             />
           </div>
 
