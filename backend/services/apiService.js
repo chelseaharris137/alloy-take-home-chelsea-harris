@@ -20,26 +20,6 @@ const getAuthHeaders = () => {
   };
 };
 
-// GET: Retrieve required parameters
-// exports.getParameters = async () => {
-//   const response = await fetch(
-//     `${BASE_URL}/v1/parameters/`,
-//     {
-//       method: "GET",
-//       headers: getAuthHeaders(),
-//       signal: AbortSignal.timeout(15000)
-//     }
-//   );
-
-//   const data = await response.json();
-
-//   if (!response.ok) {
-//     throw new Error(`Alloy parameters request failed (${response.status})`);
-//   }
-
-//   return data;
-// };
-
 exports.getParameters = async () => {
   try {
     const response = await fetch(
