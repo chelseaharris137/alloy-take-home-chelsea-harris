@@ -10,37 +10,37 @@ body {
 
 }
 
-/* Container holding all the form rows stays vertical */
+/* Container holding all the form rows */
 form {
   display: flex;
   flex-direction: column;
   gap: 20px; 
   width: 100%;
-  max-width: 500px; /* Bumped slightly to allow room for inline text */
+  max-width: 500px;
 }
 
-/* Updated: Changes layout from stacked to side-by-side */
+/* Side-by-side layout */
 .form-row {
   display: flex;
-  flex-direction: row;       /* Places items side-by-side */
-  align-items: center;       /* Centers the label text vertically with the input box */
-  justify-content: space-between; /* Pushes text to the left and input to the right */
-  gap: 16px;                 /* Minimum gap between the label text and input box */
+  flex-direction: row;       
+  align-items: center;       
+  justify-content: space-between; 
+  gap: 16px;                 
   width: 100%;
 }
 
-/* Ensures the label has a consistent baseline width so the inputs line up perfectly */
+/* Consistent label styling */
 .form-row label {
   font-size: 14px;
   font-weight: 600;
   color: #333;
-  min-width: 120px;          /* Forces all labels to take up the same horizontal space */
-  flex-shrink: 0;            /* Prevents the label text from getting squished */
+  min-width: 120px;       
+  flex-shrink: 0;            
 }
 
-/* Input boxes now fill the remaining space flexibly */
+/* Input boxes */
 .form-row input {
-  flex-grow: 1;              /* Makes the input grow to fill the rest of the row width */
+  flex-grow: 1;              
   box-sizing: border-box; 
   padding: 8px 12px;
   font-size: 16px;
@@ -56,11 +56,11 @@ form {
   border-color: #000; 
 }
 
-/* Adjust the button row so it lines up with the input boxes on the right */
+/* Adjust the button row so it lines up with the input boxes */
 .button-row {
   display: flex;
-  justify-content: flex-end; /* Aligns the button container to the right */
-  width: 100%;/* Adds a bit of space above the button */
+  justify-content: flex-end; 
+  width: 100%;
 }
 
 .submit-button {
@@ -75,7 +75,7 @@ form {
   border-radius: 16px; 
 }
 
-/* Un-nested hover state with variable and fallback color (e.g., #333) */
+/* Hover state with fallback color*/
 .submit-button:hover {
   background-color: #a31c67;
   border-color: #a31c67;
