@@ -1,4 +1,4 @@
-# Alloy Applicant Evaluation Application
+# Alloy 
 
 A React application integrated with the Alloy sandbox API to collect applicant information and submit applicants for evaluation.
 
