@@ -92,3 +92,11 @@ The frontend will typically run at:
 http://localhost:5173
 ```
 
+## Testing All 3 Outcomes
+
+1. <b>Approved:</b> Complete all required fields with valid test information to trigger an approval and successful account creation.
+
+2. <b>Denied:</b> Complete all fields and set the applicant's last name to <i>"Deny"</i> to trigger a denial and display the rejection page.
+
+3. <b>Manual Review:</b> Leave the first name field blank to trigger manual review. The required-field validation has been temporarily disabled for testing purposes.
+
