@@ -86,7 +86,7 @@ function App() {
       );
 
       const result = await evaluationResponse.json();
-      console.log('Evaluation Result:', result);
+      
       const { outcome } = result?.data?.data?.summary || {};
  
       if (outcome === "Approved") {

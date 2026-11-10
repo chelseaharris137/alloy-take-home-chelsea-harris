@@ -20,26 +20,6 @@ const getAuthHeaders = () => {
   };
 };
 
-
-// const getAuthHeaders = () => {
-//   const token = process.env.ALLOY_WORKFLOW_TOKEN;
-//   const secret = process.env.ALLOY_WORKFLOW_SECRET;
-
-//   if (!token || !secret) {
-//     throw new Error("Alloy credentials are missing");
-//   }
-
-//   const credentials = Buffer
-//     .from(`${token}:${secret}`)
-//     .toString("base64");
-
-//   return {
-//     "Authorization": `Basic ${credentials}`,
-//     "Content-Type": "application/json",
-//     "Accept": "application/json"
-//   };
-// };
-
 exports.getParameters = async () => {
   try {
     const response = await fetch(
@@ -52,9 +32,6 @@ exports.getParameters = async () => {
     );
 
     const responseText = await response.text();
-
-    console.log("Alloy Status:", response.status);
-    console.log("Alloy Response:", responseText);
 
     if (!response.ok) {
       throw new Error(
