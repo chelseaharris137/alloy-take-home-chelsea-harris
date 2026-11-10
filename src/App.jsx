@@ -90,11 +90,14 @@ function App() {
       const { outcome } = result.data.summary || {};
       
       if (outcome === "Approved") {
-          setDisplayMessage('Congratulations! Your application has been approved and your account has been successfully created.');
+        setDisplayMessage('Congratulations! Your application has been approved and your account has been successfully created.');
       } else if (outcome === "Denied") {
         setDisplayMessage('Unfortunately, we were unable to approve your application at this time.');
       } else if (outcome === "Manual Review") {
-                setDisplayMessage('We\'ve received your application. Our team needs to review some additional information and will follow up with you.');
+       setDisplayMessage('We\'ve received your application. Our team needs to review some additional information and will follow up with you.');
+      }
+      else {
+        setDisplayMessage('We\'ve received your application. Our team needs to review some additional information and will follow up with you.');
       }
 
     } catch (error) {
