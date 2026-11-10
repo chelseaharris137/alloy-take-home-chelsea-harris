@@ -123,7 +123,36 @@ function App() {
             alt="Logo"
           />
         </div>
-        {displayMessage != '' ? (<div>{displayMessage}</div>) : (<form onSubmit={handleSubmit}>
+        {displayMessage != '' ? (
+          <div>
+            <div>{displayMessage}</div>
+            <div>
+              <section id="spacer"></section>
+                <button
+                  className="submit-button"
+                  onClick={() => {
+                    setDisplayMessage('');
+                    setFormData({
+                      firstName: '',
+                      lastName: '',
+                      addressLine1: '',
+                      addressLine2: '',
+                      city: '',
+                      state: '',
+                      zipCode: '',
+                      country: 'US',
+                      ssn: '',
+                      email: '',
+                      phone: '',
+                      dateOfBirth: ''
+                    });
+                  }}
+                >
+                  Return to Form
+                </button>
+            </div>
+            </div>) : 
+            (<form onSubmit={handleSubmit}>
 
           <div className="form-row">
           {/* First name data input not required in order to test manual review outcome */}
